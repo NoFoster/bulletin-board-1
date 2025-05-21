@@ -19,7 +19,7 @@ class BoardsController < ApplicationController
 
   def create
     the_board = Board.new
-    the_board.name = params.fetch("query_name")
+    the_board.name = params.fetch("name")
 
     if the_board.valid?
       the_board.save
@@ -33,7 +33,7 @@ class BoardsController < ApplicationController
     the_id = params.fetch("path_id")
     the_board = Board.where({ :id => the_id }).at(0)
 
-    the_board.name = params.fetch("query_name")
+    the_board.name = params.fetch("name")
 
     if the_board.valid?
       the_board.save
